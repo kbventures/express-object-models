@@ -1,7 +1,7 @@
 import moment from 'moment';
-import uuidv4 from 'uuid/v4';
+import { v4 as uuidv4 } from 'uuid';
 import db from '../db';
-import Helper from './Helper';
+import Helper from './Helpers';
 
 const User = {
   /**
@@ -24,7 +24,7 @@ const User = {
       VALUES($1, $2, $3, $4, $5)
       returning *`;
     const values = [
-      uuidv4(),
+      v4(),
       req.body.email,
       hashPassword,
       moment(new Date()),

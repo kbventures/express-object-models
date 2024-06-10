@@ -2,9 +2,9 @@
 import express from 'express';
 import dotenv from 'dotenv';
 import 'babel-polyfill';
-import ReflectionWithJsObject from './src/usingJSObject/controllers/Reflection';
-import ReflectionWithDB from './src/usingDB/controller/Reflection';
-import UserWithDb from './src/usingDB/controller/Users';
+import ReflectionWithJsObject from './src/usingJSObject/controllers/Reflections';
+import ReflectionWithDB from './src/usingDB/controllers/Reflections';
+import UserWithDb from './src/usingDB/controllers/Users';
 import Auth from './src/usingDB/middleware/Auth';
 
 dotenv.config();

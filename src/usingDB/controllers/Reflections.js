@@ -1,5 +1,5 @@
 import moment from 'moment';
-import uuidv4 from 'uuid/v4';
+import { v4 as uuidv4 } from 'uuid';
 import db from '../db';
 
 const Reflection = {
@@ -15,7 +15,7 @@ const Reflection = {
       VALUES($1, $2, $3, $4, $5, $6, $7)
       returning *`;
     const values = [
-      uuidv4(),
+      v4(),
       req.body.success,
       req.body.low_point,
       req.body.take_away,
