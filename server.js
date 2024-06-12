@@ -26,5 +26,5 @@ app.post('/api/v1/users', UserWithDb.create);
 app.post('/api/v1/users/login',UserWithDb.login);
 app.delete('/api/v1/users/me', Auth.verifyToken, UserWithDb.delete);
 
-app.listen(3000)
-console.log('app running on port ', 3000);
+app.listen(3001)
+console.log('app running on port ', 3001);
