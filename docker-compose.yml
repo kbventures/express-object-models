@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   mtrade-express-postgres:
     image: postgres:latest

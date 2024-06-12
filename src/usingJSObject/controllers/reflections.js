@@ -1,4 +1,4 @@
-import ReflectionModel from '../models/Reflections';
+import ReflectionModel from '../models/reflections';
 
 const Reflection = {
   /**

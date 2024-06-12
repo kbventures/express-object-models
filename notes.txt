@@ -14,7 +14,18 @@ sudo docker-compose up -d
 
 sudo docker-compose exec service  psql -U USER    DETACHED DB
 sudo docker-compose exec postgres psql -U mtrade -d mtrade-db
-sudo docker-compose exec mtrade-express-postgres psql -U mtrade-express-postgres-user mtrade-express-postgres
+sudo docker-compose exec mtrade-express-postgres psql -U user mtrade-e-p
+
+// POSTGRES URL
+postgresql://<USER>:<PASSWORD>@<HOST>:<PORT>/<DB_NAME>
+postgresql://user:password@localhost:5433:mtrade-e-p
+
+// CREATE OR DROP Table
+node db createTables 
+node db dropTables 
+
+
+
 docker exec -it mtrade-app npx dotenv -e .env.local -- prisma db push
 
 sudo: Execute the following command with superuser privileges.
