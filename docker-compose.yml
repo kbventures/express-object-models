@@ -1,5 +1,6 @@
 services:
   mtrade-express-postgres:
+    container_name: mtrade-express-postgres
     image: postgres:latest
     restart: always
     environment:
@@ -11,5 +12,24 @@ services:
     volumes:
       - mtrade_express-postgres_data:/var/lib/postgresql/data
 
+  mtrade-express-app:
+    container_name: mtrade-express
+    build: .
+    ports:
+      - "8080:8080"
+    environment:
+      - NODE_ENV=development
+      - DATABASE_URL=postgres://user:password@mtrade-express-postgres:5432/mtrade-e-p
+    depends_on:
+      - mtrade-express-postgres
+    volumes:
+      - .:/mtrade-express-backend
+    command: npm run dev-start
+
 volumes:
   mtrade_express-postgres_data:
+
+
+
+
+

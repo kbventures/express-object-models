@@ -25,9 +25,8 @@ node db createTables
 node db dropTables 
 
 
-
+// To be sorted
 docker exec -it mtrade-app npx dotenv -e .env.local -- prisma db push
-
 sudo: Execute the following command with superuser privileges.
 docker-compose: Command-line tool for managing multi-container Docker applications.
 exec: Execute a command within a running container.

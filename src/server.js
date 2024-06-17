@@ -1,20 +1,21 @@
 // server.js
 import express from 'express';
 import dotenv from 'dotenv';
-import 'babel-polyfill';
-import ReflectionWithJsObject from './src/usingJSObject/controllers/reflections';
-import ReflectionWithDB from './src/usingDB/controllers/reflections';
-import UserWithDb from './src/usingDB/controllers/users';
-import Auth from './src/usingDB/middleware/auth';
+// No longer needed
+// import 'babel-polyfill';
+import ReflectionWithJsObject from './usingJSObject/controllers/reflections';
+import ReflectionWithDB from './usingDB/controllers/reflections';
+import UserWithDb from './usingDB/controllers/users';
+import Auth from './usingDB/middleware/auth';
 
-dotenv.config();
+dotenv.config({path:"../env."});
 const Reflection = process.env.TYPE === 'db' ? ReflectionWithDB : ReflectionWithJsObject;
 const app = express()
 
 app.use(express.json())
 
 app.get('/', (req, res) => {
-  return res.status(200).send({'message': 'YAY! Congratulations! Your first endpoint is working'});
+  return res.status(200).send({'message': 'YAY! Congratulations! Your first endpoint is working!'});
 });
 
 app.post('/api/v1/reflections', Auth.verifyToken, Reflection.create);
@@ -26,5 +27,5 @@ app.post('/api/v1/users', UserWithDb.create);
 app.post('/api/v1/users/login',UserWithDb.login);
 app.delete('/api/v1/users/me', Auth.verifyToken, UserWithDb.delete);
 
-app.listen(3001)
-console.log('app running on port ', 3001);
+app.listen(8080)
+console.log('app running on port ', 8080);

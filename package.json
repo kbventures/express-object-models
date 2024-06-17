@@ -5,9 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node build/server.js",
-    "dev-start": "babel-watch server.js",
-    "build": "babel server.js -d build"
+    "start": "node dist/server.js",
+    "dev-start": "nodemon --exec babel-node src/server.js",
+    "clean": "rm -rf dist",
+    "build": "npm run clean && babel src -d dist"
   },
   "author": "",
   "license": "ISC",
@@ -23,11 +24,11 @@
   "devDependencies": {
     "@babel/cli": "^7.24.7",
     "@babel/core": "^7.24.7",
+    "@babel/node": "^7.24.7",
     "@babel/preset-env": "^7.24.7",
     "babel-cli": "^6.26.0",
-    "babel-polyfill": "^6.26.0",
-    "babel-watch": "^7.8.1",
     "clear": "^0.1.0",
-    "make-runnable": "^1.4.1"
+    "make-runnable": "^1.4.1",
+    "nodemon": "^3.1.3"
   }
 }
